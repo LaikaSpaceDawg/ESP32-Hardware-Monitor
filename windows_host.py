@@ -1,7 +1,7 @@
 import serial
 import os
 import time
-import datetime
+from datetime import datetime
 import psutil
 import math
 import GPUtil
@@ -33,7 +33,7 @@ c.FanControllerEnabled = True
 # Leave all four enabled to be able to read CPU and GPU temperatures
 c.Open()
 c.Hardware[hardware_index].Update()
-updateTime = 4
+updateTime = 2
 # Set refresh rate
 
 cpu_temp = ''
@@ -50,9 +50,9 @@ def save_log():
     os.fsync(log.fileno())
 
 if logging:
-    log_name = str(datetime.now)+".txt"
+    log_name = str(datetime.now().strftime("%Y-%m-%d_%H_%M_%S"))+".txt"
     log = open(log_name, 'w')
-    print("[" + str(datetime.now) + "]: Starting.")
+    print("[" + str(datetime.now()) + "]: Starting.")
     save_log()
 
 
@@ -96,12 +96,12 @@ while 1:
     if safety:
         if (cpu_temp >= cpu_threshold) or (gpu_temp >= gpu_threshold):
             if cpu_temp >= cpu_threshold:
-                print("["+str(datetime.now)+"]: CPU Overheating.")
-                print("[" + str(datetime.now) + "]: Shutting Down.")
+                print("["+str(datetime.now())+"]: CPU Overheating.")
+                print("[" + str(datetime.now()) + "]: Shutting Down.")
                 save_log()
             if gpu_temp >= gpu_threshold:
-                print("[" + str(datetime.now) + "]: GPU Overheating.")
-                print("[" + str(datetime.now) + "]: Shutting Down.")
+                print("[" + str(datetime.now()) + "]: GPU Overheating.")
+                print("[" + str(datetime.now()) + "]: Shutting Down.")
                 save_log()
             exit()
             # realistically neither should ever trigger, especially gpu threshold

@@ -23,10 +23,10 @@ print(len(c.Hardware[hardware_index].Sensors))
 
 c.Hardware[hardware_index].Update()
 
-while True:
-    for a in range(0, len(c.Hardware[0].Sensors)):
-        print(str(c.Hardware[0].Sensors[a].Identifier))
-        c.Hardware[0].Update()
+
+for a in range(0, len(c.Hardware[hardware_index].Sensors)):
+    print(str(c.Hardware[hardware_index].Sensors[a].Identifier))
+    c.Hardware[hardware_index].Update()
     # prints all sensor's names in current hardware device
 
 for i in range(len(c.Hardware[hardware_index].Sensors)):
