@@ -10,3 +10,4 @@ REQUIREMENTS:
 	Various Python Libraries used in host file
 	
 USE:
+	**ALWAYS** run in administrator, otherwise temperature cannot be read
