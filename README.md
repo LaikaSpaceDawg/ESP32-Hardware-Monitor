@@ -5,6 +5,6 @@ REQUIREMENTS:
 Open Hardware Monitor 
     
 	
-			Provided, but feel free to download on your own
+	Provided, but feel free to download on your own
 			
-			Various Python Libraries used in host file
+	Various Python Libraries used in host file
